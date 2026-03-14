@@ -1,33 +1,20 @@
-import React from 'react'
-import Counter from "./Counter";
-import Batsman from "./Batsman"
+import React, { Suspense } from 'react'
+import Friends from './Friends';
+import Player from './Player';
+
+const featchFriends = async() => {
+  const res = await fetch('https://jsonplaceholder.typicode.com/users');
+  return res.json();
+}
 
 const App = () => {
-
-  function handleClick() {
-    alert('I am clicked!')
-  };
-
-  const handleClicked03 = () => {
-    alert("I am Clicked-03")
-  }
-
-  const wrap = (num) => {
-    const sum = num + 10;
-    alert(sum);
-  }
-
+  const featchFri = featchFriends(); 
   return (
     <div>
-      <Batsman />
-      <Counter />
-
-      <button onClick={handleClick}>Click Me</button>
-      <button onClick={function handle02 () {
-        alert("I am Clicked02");
-      }}>Click Me02</button>
-      <button onClick={handleClicked03}>Click Me-03</button>
-      <button onClick={() => wrap(5)}>Click Me-04</button>
+      <Player />
+      {/* <Suspense fallback = {<h3>Friends Coming...</h3>}>
+      <Friends friend = {featchFri}/>
+      </Suspense> */}
     </div>
   )
 }
