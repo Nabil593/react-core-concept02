@@ -1,5 +1,6 @@
 import React from 'react'
 import Counter from "./Counter";
+import Batsman from "./Batsman"
 
 const App = () => {
 
@@ -18,6 +19,7 @@ const App = () => {
 
   return (
     <div>
+      <Batsman />
       <Counter />
 
       <button onClick={handleClick}>Click Me</button>
